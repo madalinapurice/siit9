@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>Tema JS</title>
+  </head>
+
+  <script>
+    //the numbers from 1 to 20
+    for (var i = 1; i <= 20; i++) {
+      console.log(i);
+    }
+
+    //the odd numbers from 1 to 20
+    for (var i = 1; i <= 20; i++) {
+      if (i % 2 !== 0)
+        console.log("Odd number " + i);
+    }
+
+    //the sum of the elements of an array
+    function sum(array) {
+      var sum2 = 0;
+      for (var i = 0; i < array.length; i++) {
+        sum2 += array[i];
+      }
+      console.log("suma este " + sum2);
+    }
+    sum([1, 5, ])
+
+
+    //the maximum of the elements of an array
+    function maximArray(arr) {
+      var maxim = Math.max(...arr);
+      console.log("maxim=" + maxim);
+    }
+    maximArray([1, 5, 9, 3, 10, 9, 7, 7, 50, 102]);
+
+
+    //how many times a certain element appears in an array
+    function frequency(arr, nr) {
+      var count = 0;
+      for (var i = 0; i < arr.length; i++) {
+        if (nr === arr[i]) {
+          count = count + 1;
+        }
+      }
+      console.log("Element appears " + count + " times");
+    }
+    frequency([1, 5, 5, 8, 5, 6, 5], 5)
+
+
+    //Challenge
+    function myFunction(numbers, nr) {
+      var rezultat = "";
+      for (var j = 0; j < nr; j++) {
+
+        for (var i = 0; i < numbers.length; i++) {
+          rezultat += numbers.charAt(i) + " ";
+        }
+        rezultat += "\n";
+        for (var i = numbers.length - 1; i >= 0; i--) {
+          rezultat += numbers.charAt(i) + " ";
+        }
+        rezultat += "\n";
+      }
+      console.log(rezultat);
+    }
+    myFunction("0101", 2);
+
+  </script>
+
+  <body>
+
+  </body>
+
+</html>

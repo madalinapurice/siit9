@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Site</title>
+	<script>
+		
+	var ora = 15;
+	
+	if (ora>=6 && ora<12) 
+		console.log ('Good morning');
+	else if (ora>=12 && ora<18) 
+		console.log ('Good afternoon');
+	 else 
+		console.log('Good evening');
+	
+	function add(first, second) {
+		return first+second; 
+	} 
+	console.log(add(1,2));
+	
+	
+	//display numbers from 1 to 20
+	for (var i=1;i<=20;i++){
+	console.log (i);
+	}
+	
+	//odd numbers
+	for (var i=1;i<=20;i++){
+	if (i%2!==0)
+	console.log (i);
+	}
+	
+	//the numbers from 1 to 20 in line
+	var nrs=[];
+	for (var i=0;i<20;i++){
+		nrs[i]=i+1;
+	
+	}
+	console.log (...nrs);
+	
+	
+	//maxim
+	var arr = [1,5,9,3,10,9,7,7,50,102];
+	var max = Math.max(...arr);
+	console.log("maxim=" +max);
+	
+	
+	//sum of array
+	var array=[1,5,9,3,10,9,7,7,50];
+	var sum2=0;
+	for (var i=0;i<array.length;i++){
+	sum2+=array[i];
+	}
+	console.log(sum2);
+	
+//the odd numbers from 1 to 20
+var odd=[];
+var x = 0;
+for (var i=1;i<=20;i++){
+	if (i%2!==0){
+	odd[x]=i;
+	x++;}
+}
+console.log (...odd);
+	
+	
+	for (var i=1;i<=100;i++) {
+	console.log(indiceMasaCorporala (i, 1.73));
+	}	
+	
+	for (var i=1;i<=97;i+=5) { // ultima valoare pe care o verifica e 96
+	console.log(indiceMasaCorporala (i, 1.73));
+	}
+	
+	
+	var i=20;
+	i=i*(i+1)/2;
+	console.log(i);
+	
+	
+	//de cate ori apare un element in array
+	var count = {};
+	var arr = [1,5,9,3,10,9,7,7,50,102];
+	for (var i=0; i<arr.length;i++){
+		var element = arr[i];
+		if (count[element]===undefined){
+			count[element] =1;
+		} else {
+			count[element]=count[element]+1;
+		}
+	}
+	console.log(count);
+	
+	</script>
+</head>
+
+<body>
+
+</body>
+</html>

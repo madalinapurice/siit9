@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <style>
+      #title {
+        max-width: 500px;
+        font-weight: bold;
+        float: left;
+        padding: 3px;
+      }
+
+      #Nav {
+        max-width: 500px;
+        margin: 0 auto;
+        font-weight: bold;
+        text-align: justify;
+        line-height: 40%;
+      }
+
+      #menu {
+        font-weight: bold;
+        padding: 3px;
+        float: right;
+      }
+
+      #mainContent {
+        max-width: 500px;
+        margin: 0 auto;
+        text-align: justify;
+      }
+
+      a {
+        color: black;
+        text-decoration: none;
+      }
+
+    </style>
+
+    <title>Jeremy's blog</title>
+
+  </head>
+
+  <body>
+    <div id="Nav">
+      <br />
+      <div id="title">Jeremy's Blog</div>
+      <div id="menu">
+        <a href="#">HOME&nbsp;</a>
+        <a href="#">ABOUT&nbsp;</a>
+        <a href="#">ARCHIVE</a>
+      </div>
+      <div style="clear:both"></div>
+      <hr />
+    </div>
+
+    <div id="mainContent">
+      <h3>Rules for autocomplete</h3>
+
+      <p><i>Posted on March 19, 2019</i></p>
+
+      <p>Autocompleting text with known values seems like an easy problem to solve, but
+        so so so many UIs get it wrong. I see this frequently enough that, rather than
+        complain about them individually, I thought I'd just write down the set of rules they
+        often break. </p>
+      <p>There may be cases where some Of these rules aren't 't the best thing to do, but there
+        should be a good reason for breaking one Of these rules (for example, some Of these
+        rules don't apply if a field must be filled with a value from a fixed set, like the list
+        of US states). Following these rules should always result in at very least a same
+        experience: </p>
+      <ul>
+        <li>Exact matches always come first. If the user types in an option exactly, Other
+          options must always go below the one matching What they typed.
+          Besides exact matches, prefix matches come first. If I type "Fr" I want
+          "Fresno" not "San Francisco." </li>
+        <li>After prefix matches, it can fall back to substring matches. Starting with
+          substring matches would almost always be the wrong thing to do since users
+          Start typing words at the beginning not somewhere in the middle. </li>
+        <li>If there are no substring matches, it can optionally fall back to subsequence
+          matching. This is only useful in some cases. </li>
+        <li>If there are no subsequence/substring matches, it can optionally fall back to
+          approximate matches. This is rarely necessary to provide. </li>
+        <li>Matches should be sorted alphabetically. </li>
+        <li>When one option is the prefix Of another, put the shortest one first.
+          The matching should probably be case insensitive unless there are two options
+          that differ only by case.</li>
+      </ul>
+
+    </div>
+
+  </body>
+
+</html>

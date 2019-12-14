@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Variabile</title>
+	<script>
+	
+	function indiceMasaCorporala(greutate, inaltime){
+		var imc	= greutate / inaltime / inaltime;
+		var mesaj = "la greutatea de " +
+			greutate + 
+			" si inaltimea de " +
+			inaltime + 
+			" esti";
+		console.log(imc);
+		if (imc<19){
+			return mesaj + " subponderal";
+		} else if (imc<24){
+			return mesaj + " normal";
+		} else if (imc<30){
+			return mesaj + " supraponderal";
+		} else if (imc<40){
+			return mesaj + " obez";
+		} else {
+			return mesaj +" de dus la doctor!!!";
+		}
+	
+	}
+	var indiceleMeu = indiceMasaCorporala (75, 1.73); // variabila o sa ia valoarea dupa ce face toate calculele de sus
+	console.log(indiceleMeu);
+	console.log(indiceMasaCorporala (45, 1.73));
+	console.log(indiceMasaCorporala (85, 1.73));
+	console.log(indiceMasaCorporala (150, 1.73));
+	
+		
+	
+	var anaAreMere = "Ana are mere";
+		console.log(anaAreMere.length)
+	
+	for(i=0;i<anaAreMere.length;i++){
+		console.log(anaAreMere[i]);
+	}
+	 for (i=anaAreMere.length-1; i>=0; i--){
+		console.log(anaAreMere[i]);
+	 }
+	 
+	 
+	 
+
+	/*var i=1;
+	
+	if (i<=100;) {
+	console.log (indiceMasaCorporala (i, 1.73);
+	i++
+	} // i este 2
+	
+	/*if (i<=100;) {
+	console.log (indiceMasaCorporala (i, 1.73);
+	i++
+	}
+	
+	/*if (i<=100;) {
+	console.log (indiceMasaCorporala (i, 1.73);
+	i++
+	} // i este 100
+	
+	/*if (i<=100;) {
+	console.log (indiceMasaCorporala (i, 1.73);
+	i++//i este 101
+	} */
+	
+	var varsta = 27;
+	var Varsta = 45;
+	var varstaStudent = 45;
+	var nume = "Purice";
+	var prenume = "Madalina";
+	var greutate = 75.5;
+	var inaltime = 1.70;
+
+	var studenti = [
+		"alex",
+		"matei",
+		"andreea",
+	];
+	varsta = varsta - 20;
+	varsta = varsta * 2;
+	varsta = varsta / 2;
+	varsta = varsta + 2;
+	
+	//comentariu
+	/*Comentariu inline-block*/
+	
+	varsta += 5; // varianta mai scurta
+	varsta ++; // varsta+1
+	++varsta;
+	varsta --;
+	--varsta;
+	
+	
+	
+	
+	</script>
+</head>
+
+<body>
+
+
+
+</body>
+</html>

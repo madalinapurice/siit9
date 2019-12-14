@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Site</title>
+</head>
+
+<script>
+
+function sumaNumerelorPare (numarLimita){
+	var suma=0;
+	for (var i=0;i<numarLimita;i++) {
+	if (i%2===0){
+	suma +=i;
+		}
+	}
+	return suma;
+}
+console.log(sumaNumerelorPare(100));
+
+/*for (var i=0;i<numarLimita;i+=2) {
+	suma +=i;*/
+
+	
+//caractere inversate
+	 
+ function inversa (str){
+	var strInvers = "";
+	for (var i=str.length-1;i>=0;i--){
+			strInvers+=str[i];
+	}
+	return strInvers;
+ }
+	 console.log(inversa("inversa este "+"abcdfgh"));
+	 
+	 function palindrom(str){
+		return str===inversa(str);
+	 }
+	 console.log(palindrom("abccba"));
+	 
+	 function palindrom2(str){
+		for (var i=0;i<str.length;i++){
+			if(str[i]!= str[str.length-i-1]){
+				return false;
+			}
+		}
+				return true;
+	}
+	console.log(palindrom2("abccba"));
+</script>
+
+<body>
+
+
+
+</body>
+</html>
