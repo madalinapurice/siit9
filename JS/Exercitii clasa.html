@@ -289,6 +289,85 @@ function produsImpare (n){
 console.log(produsImpare(5));
 	
 	
+//O functie "contains" care primeste 2 parametri(arr - array de nr intregi si x - numar) si verifica daca x exista in array
+
+function contains (arr, x){
+	for (var i=0; i<arr.length; i++){
+		if(arr[i]===x){
+			return true;
+		}
+	}
+		return false;		
+}
+console.log(contains([1, 5, 9, 3, 10, 9, 7, 7, 50, 102],5));
+console.log(contains([1, 5, 9, 3, 10, 9, 7, 7, 50, 102],11));
+
+
+//O functie "maxArray" care intoarce maximul dintr-un array primit ca parametru
+
+function maxArray(arr){
+	var max=arr[0];
+	for (var i=0; i<arr.length; i++){
+		if (arr[i]>=max) {
+			max=arr[i];
+		}
+	}
+		return max;
+}
+console.log(maxArray([1, 5, 9, 3, 10, 9, 7, 7, 50, 102]));
+
+
+//O functie "sumMinMax" care intoarce suma dintre max si min, dintr-un array primit ca parametru
+
+function sumMinMax (arr){
+	var max=arr[0];
+	var min=arr[0];
+	for (var i=0; i<arr.length; i++){
+		if (arr[i]>=max){
+			max=arr[i];
+		} else if (arr[i]<=min) {
+			min=arr[i];
+		}
+	}
+	return min+max;
+}
+console.log(sumMinMax([1, 5, 9, 3, 10, 9, 7, 7, 50, 102]));
+
+//O functie "hasDuplicates" care verifica daca exista duplicate intr-un array primit ca parametru
+
+function hasDuplicates (arr){
+	for (var i=0; i<arr.length-1; i++){
+		for (var j=i+1; j<arr.length;j++){
+			if (arr[i]===arr[j]){
+				return true;
+			}
+		}
+	}	
+	return false;
+}
+
+console.log(hasDuplicates([1, 5, 9, 3, 10, 9, 7, 7, 50, 102]));
+
+
+//O functie "produsPozitive" care intoarce produsul numerelor pozitive intr-un array primit ca parametru
+
+function produsPozitive(arr){
+	var produs=1;
+	for (var i=0; i<arr.length; i++){
+		if (arr[i]>0){
+			produs=produs*arr[i];
+		}
+	} 
+	return produs;
+}
+console.log(produsPozitive([1, -10, 9, -50]));
+
+//O functie "palindrom" care verifica daca un numar primit ca parametru este palindrom (inversul == originalul, ex: 1234321, 55, 787)
+
+function palindrom (nr){
+
+}
+console.log(palindrom(737));
 
 
 	</script>
