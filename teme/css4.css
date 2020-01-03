@@ -1,0 +1,68 @@
+
+#modalWindow {
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background-color: gainsboro;
+	z-index: 99999;
+	opacity:0;
+	transition: opacity 400ms linear;
+	pointer-events: none;
+}
+#modalWindow:target {
+	opacity:1;
+	pointer-events: auto;
+}
+#modalWindow > div {
+	width: 400px;
+	height: 240px;
+	position: relative;
+	margin: 10% auto;
+	padding: 20px 20px 13px 20px;
+	background-color:white;
+}		
+.Title {
+	margin-left: 20px;
+	padding-top: 15px;
+	padding-bottom: 30px;
+	font-size: 30px
+}
+
+input[type=text] {
+	margin-left: 20px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	padding-left: 3px;
+	margin-top: 10px;
+}
+
+label {
+	margin-left: 20px;
+}
+.buttons {
+	padding-bottom: 20px;
+	padding-top: 20px;
+	margin-left: 220px;
+}
+
+#submit {
+	background-color: mediumslateblue;
+	font-size: 15px;
+	color: mintcream;
+	margin-left: 20px;
+	padding: 10px;
+}
+
+#close {
+	color: mediumslateblue;
+	background-color: white;
+	font-size: 15px;
+	margin-left: 0px;
+	padding: 10px;
+	border: none; 
+}
+.x {
+	margin-left: 370px;
+}

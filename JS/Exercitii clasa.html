@@ -129,6 +129,11 @@ function abs(nr){
 
 //Write a JavaScript program check if a given positive number is a multiple of 3 or a multiple of 7.
 
+function multiple3Or7(nr){
+	return(nr%3===0&&nr%7===0)
+}
+console.log(multiple3Or7(21));
+console.log(multiple3Or7(20));
 
 
 //Write a JavaScript program to check if two given integer values are in the range 50..99 (inclusive). 
@@ -163,211 +168,113 @@ function maxNr (a,b,c){
 console.log(maxNr(50,98,100));
 
 
-//Tema
+//Write a JavaScript program to find a value which is nearest to 100 from two different given integer values.
 
-//O functie "equals" care compara 2 valori si returneaza true daca sunt egale si false daca nu sunt egale
-
-function equals (a,b){
-	return (a===b)
-}
-console.log(equals(10,10));
-console.log(equals(10,0));
-
-
-//O functie "compare" care compara 2 valori si returneaza 
-//-1 daca primul e mai mic ca al doilea, 0 daca sunt egale si 1 daca primul e mai mare ca al doilea.
-
-function compare (a,b){
-	if (a<b){
-		return -1;
-	} else if (a===b){
-		return 0;
-	} else {
-		return 1;
+function nearest100 (a,b){
+	var a1=a-100;
+	var b1=b-100;
+		if (a1<=b1){
+			return b;
+		} else {
+			return a;
+		}
 	}
-}
-console.log(compare(11,10));
-console.log(compare(10,10));
-console.log(compare(9,10));
+console.log(nearest100(50,200));
+console.log(nearest100(-50,101));
+console.log(nearest100(0,-1));
 
-//O functie "max" care primeste 2 valori si returneaza maximul dintre cele 2
+//Write a Javascript program to format a big number with comma (567234 => 567,234)
 
-function max (a,b){
-	return (a>b)?a:b
-}
-console.log(max(11,10));
-console.log(max(1,10));
-console.log(max(10,10));
-
-
-//O functie "min" care primeste 2 valori si returneaza minimul dintre cele 2
-
-function min (a,b){
-	return (a<b)?a:b
-}
-console.log(min(11,10));
-console.log(min(1,10));
-console.log(min(10,10));
-
-//O functie "suma" care intoarce suma primelor N numere naturale pozitive
-
-function suma (n){
-	return (n>0)?n*(n+1)/2:0
-}
-console.log(suma(10));
-console.log(suma(-1));
-
-
-//O functie "prim" care verifica daca N este numar prim (restul impartirii la 1 si la N ==0)
-
-function prim (num){
-	 for(var i = 2; i < num; i++){
-		if(num % i === 0){
-		return false; }
+function nrWithComma(n){
+	var str="";
+	for (var i=0;n>0;i++){
+	
+		var c=n%10;
+		n=Math.floor(n/10);
+		if(i%3===0&&i!=0){
+			str=","+str;
+		}
+		str=c+str;
 	}
-		return num>1;
+	return str;
 }
-console.log(prim(10));
-console.log(prim(3));
+console.log(nrWithComma(127321));
+console.log(nrWithComma(1273));
+console.log(nrWithComma(12732));
 
-//O functie "sumaPrime" care intoarce suma primelor N numere prime (pentru N=5 trebuie suma 2+3+5+7+11)
 
-function sumaPrime (n){
-	var nrGasite = 0;
-	var suma = 0;
+//exercitii clasa part 2
 
-	for(var i = 2; i>0; i++){
-		if (prim(i)){
-			suma = suma+i;
-			nrGasite = nrGasite+1;
-			if (nrGasite === n){
-				return suma;
+//Function that returns an array containing the positions of the largest value from an array given as parameter
+
+function positionArray(arr) {
+	var max = arr[0];
+        for (var i = 0; i < arr.length; i++) {
+          if (arr[i] >= max) {
+            max = arr[i];
+          }
+        }
+    
+		var pos=[];
+		for (var i = 0; i < arr.length; i++){
+			if(max===arr[i]){
+				pos.push(i);
 			}
 		}
-	}
+		return pos;
 }
-console.log(sumaPrime(3));
 
-//O functie "invers" care primeste un parametru de tip numar si intoarce inversul acestuia (ca numar) (123 => 321)
-
-function invers (nr){
-	var nrCifre=0;
-	var x=nr;
-	while (x>0){
-		nrCifre++;
-		x=x/10|0;
-console.log(x);		
-	}
-	console.log("nr cifre: "+nrCifre+ " , nrdat= "+nr);
-	var nrInvers=0;
-	for (var i=nrCifre;i>0;i--){
-		nrInvers=nrInvers+(nr%10)*10**(i-1);
-		nr=nr/10|0;
-		console.log("nr invers: "+nrInvers);
-		console.log("nr: "+nr);
-	}
-	return nrInvers;
-}	
-console.log(invers(4516));
-
-//O functie "produsImpare" care intoarce produsul primelor N numere impare pozitive
-
-function produsImpare (n){
-	var nrGasite = 0;
-	var produs = 1;
-	
-	for(var i = 1; i>0; i++){
-		if (i%2!==0){
-			produs = produs*i;
-			nrGasite = nrGasite+1;
-			if (nrGasite === n){
-				return produs;
-			}
-		}
-	}
-}
-console.log(produsImpare(5));
-	
-	
-//O functie "contains" care primeste 2 parametri(arr - array de nr intregi si x - numar) si verifica daca x exista in array
-
-function contains (arr, x){
-	for (var i=0; i<arr.length; i++){
-		if(arr[i]===x){
-			return true;
-		}
-	}
-		return false;		
-}
-console.log(contains([1, 5, 9, 3, 10, 9, 7, 7, 50, 102],5));
-console.log(contains([1, 5, 9, 3, 10, 9, 7, 7, 50, 102],11));
+console.log(positionArray([10,7,6,8,10]));
 
 
-//O functie "maxArray" care intoarce maximul dintr-un array primit ca parametru
-
-function maxArray(arr){
+function positionArray2(arr){
+	var pos=[0];
 	var max=arr[0];
-	for (var i=0; i<arr.length; i++){
-		if (arr[i]>=max) {
-			max=arr[i];
+	for (var i = 0; i < arr.length; i++){
+		if(arr[i] > max){
+		max = arr[i];
 		}
 	}
-		return max;
 }
-console.log(maxArray([1, 5, 9, 3, 10, 9, 7, 7, 50, 102]));
 
 
-//O functie "sumMinMax" care intoarce suma dintre max si min, dintr-un array primit ca parametru
+// an array that returns the largest difference between 2 adjacent values in the array
 
-function sumMinMax (arr){
-	var max=arr[0];
-	var min=arr[0];
-	for (var i=0; i<arr.length; i++){
-		if (arr[i]>=max){
-			max=arr[i];
-		} else if (arr[i]<=min) {
-			min=arr[i];
+function maxDiff(arr){
+var max=arr[0]-arr[1];
+	for (var i=0;i<arr.length-1;i++){
+		if(max<arr[i]-arr[i+1]){
+			max=arr[i]-arr[i+1];
 		}
 	}
-	return min+max;
+	return max;
 }
-console.log(sumMinMax([1, 5, 9, 3, 10, 9, 7, 7, 50, 102]));
+console.log(maxDiff([10,7,6,8,10]));
 
-//O functie "hasDuplicates" care verifica daca exista duplicate intr-un array primit ca parametru
+//2 parameters: an array and a number n. return the value of the nth largest value
 
-function hasDuplicates (arr){
-	for (var i=0; i<arr.length-1; i++){
-		for (var j=i+1; j<arr.length;j++){
-			if (arr[i]===arr[j]){
-				return true;
+function maxSmallerThan (arr, oldMax){
+	 var max = -Infinity;//array de 0 trebuie sa fie mai mare decat n
+	 for (var i=0;i<arr.length;i++){
+		if(arr[i]<oldMax){
+			if(max<arr[i]){
+				max=arr[i];
 			}
 		}
-	}	
-	return false;
+	}
+	return max;
 }
 
-console.log(hasDuplicates([1, 5, 9, 3, 10, 9, 7, 7, 50, 102]));
-
-
-//O functie "produsPozitive" care intoarce produsul numerelor pozitive intr-un array primit ca parametru
-
-function produsPozitive(arr){
-	var produs=1;
-	for (var i=0; i<arr.length; i++){
-		if (arr[i]>0){
-			produs=produs*arr[i];
-		}
-	} 
-	return produs;
+function largestValue(arr,n){
+	var max = Infinity;
+	for(var i=0;i<n;i++){
+		max=maxSmallerThan(arr,max);
+	
+	}
+	return max;
 }
-console.log(produsPozitive([1, -10, 9, -50]));
+console.log(largestValue([10,7,6,8,10]));
 
-//O functie "palindrom" care verifica daca un numar primit ca parametru este palindrom (inversul == originalul, ex: 1234321, 55, 787)
-
-function palindrom (nr){
-
-}
-console.log(palindrom(737));
 
 
 	</script>

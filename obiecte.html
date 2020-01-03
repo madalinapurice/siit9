@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Site</title>
+</head>
+
+<script>
+var persoana ={
+	nume:"purice",
+	prenume:"madalina",
+	data:new Date(1992,12,29),
+	inaltime: 1.65,
+	instructor:false
+	
+//json-javascript object notation
+}
+
+
+var elevi=[
+	{
+		nume:"Ion",
+		note:[5,10,2],
+		teza:8
+	},
+	{
+		nume:"Ion2",
+		note:[10,10,8,10],
+		teza:10
+	},
+	{
+		nume:"Ion3",
+		note:[7,10,4],
+		teza:9
+	},
+	{
+		nume:"Ion",
+		note:[5,4,2],
+		teza:8
+	},
+	{
+		nume:"Ion5",
+		note:[9,10],
+		teza:7
+	}
+
+];
+
+function media(note,teza){
+	var sum=0;
+	for (var i=0;i<note.length;i++){
+		sum+=[i];
+		console.log("suma este"+sum)
+	}
+	var medieNoteFaraTeza=sum/note.length;
+	console.log("media fara teza este"+medieNoteFaraTeza);
+	
+	medieNoteFaraTeza=Math.round(medieNoteFaraTeza*100)/100;
+
+	//*100 pt a muta virgula si apoi impartim iar la 100
+	var mediaFinala=(medieNoteFaraTeza*3+teza)/4;
+	console.log("media finala este"+mediaFinala);
+	return mediaFinala;
+}
+for(var i=0;i<elevi.length;i++){
+	console.log(elevi[i].nume,
+				media(elevi[i].note,elevi[i].teza)
+	
+	);
+}
+
+console.log(media([9,9,8],8));
+
+/*switch(x){
+	case "laptop":
+		//...;
+		break;
+	case "desktop":
+		//...
+		break;
+	default:	
+		//...
+}
+*/
+
+var azi = new Date();
+var ieri = new Date(2019,12,16);
+
+</script>
+
+<body>
+
+
+
+</body>
+</html>

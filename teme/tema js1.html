@@ -50,23 +50,23 @@
 
 
     //Challenge
-    function myFunction(numbers, nr) {
+    function myFunction(str, nrRepetari) {
       var rezultat = "";
-      for (var j = 0; j < nr; j++) {
+      for (var j = 0; j < nrRepetari; j++) {
 
-        for (var i = 0; i < numbers.length; i++) {
-          rezultat += numbers.charAt(i) + " ";
+        for (var i = 0; i < str.length; i++) {
+          rezultat += str.charAt(i) + " ";
         }
         rezultat += "\n";
-        for (var i = numbers.length - 1; i >= 0; i--) {
-          rezultat += numbers.charAt(i) + " ";
+        for (var i = str.length - 1; i >= 0; i--) {
+          rezultat += str.charAt(i) + " ";
         }
         rezultat += "\n";
       }
       console.log(rezultat);
     }
     myFunction("0101", 2);
-
+	
   </script>
 
   <body>

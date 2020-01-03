@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>Tema 2 JS</title>
+  </head>
+
+  <script>
+    //1) O functie "getDigits" care primeste un sir de caractere si returneaza cifrele din sirul respectiv
+
+    function getDigits(str) {
+      var cifre = '';
+      for (var i = 0; i < str.length; i++) {
+        if (str[i] >= 0 && str[i] <= 9) {
+          cifre += str[i];
+        }
+      }
+      return cifre;
+    }
+
+    console.log("getDigits=" + getDigits("gud33dkjdi900nuh"));
+
+    //2) O functie "getLetters" care primeste un sir de caractere si returneaza doar literele din sirul respectiv
+
+    function getLetters(str) {
+      var litere = '';
+      for (var i = 0; i < str.length; i++) {
+        if (str[i] >= 'A' && str[i] <= 'z') {
+          litere += str[i];
+        }
+      }
+      return litere;
+    }
+
+    console.log("getLetters=" + getLetters("guD33456asg8s8E9g9a82j3"));
+
+    //3) O functie "getFirst5Letters" care primeste un sir de caractere si returneaza primele 5 litere(daca exista)
+
+    function getFirst5Letters(str) {
+      var litere = '';
+      var counter = 0;
+      for (var i = 0; i < str.length; i++) {
+        if (str[i] >= 'A' && str[i] <= 'z') {
+          litere += str[i];
+          counter++;
+        }
+        if (counter === 5) {
+          return litere;
+        }
+      }
+      return "nu exista 5 litere";
+    }
+    console.log("getFirst5Letters=" + getFirst5Letters("guD33456asg"));
+    console.log("getFirst5Letters=" + getFirst5Letters("12abcd56"));
+
+
+
+    //4) O functie "concatenate" care primeste o lista de siruri de caractere si returneaza sirurile concatenate
+
+    function concatenate(list) {
+      var result = "";
+      for (var i = 0; i < list.length; i++) {
+        result += list[i];
+      }
+      return result;
+    }
+
+    console.log("concatenate=" + concatenate(["Ana", "are", "mere"]));
+    console.log("concatenate=" + concatenate(["bidhf", "a1262", "hdh44"]));
+
+
+    //5) O functie "getAllDigits" care primeste o lista de siruri de caractere si returneaza cifrele din toate sirurile
+
+    function getAllDigits(list) {
+      var result = "";
+      var x = "";
+      for (var j = 0; j < list.length; j++) {
+        x = list[j];
+        for (var i = 0; i < x.length; i++) {
+          if (x[i] >= 0 && x[i] <= 9) {
+            result = result + x[i];
+          }
+        }
+      }
+      return result;
+    }
+    console.log("getAllDigits=" + getAllDigits(["bidh23f", "536hm"]));
+
+    //6) O functie "invertAllStrings" care primeste o lista de siruri de caractere si returneaza lista de siruri de caractere inversate
+
+    function invertAllStrings(arr) {
+      var result = [];
+      for (var i = 0; i < arr.length; i++) {
+        var invers = "";
+        var sir = arr[i];
+        for (var j = sir.length - 1; j >= 0; j--) {
+          invers += sir[j];
+        }
+        result[i] = invers;
+      }
+      return result;
+    }
+    console.log("invertAllStrings=" + invertAllStrings(["Ana", "are", "mere"]));
+
+    //7) Calculeaza factorialul unui numar ("factorial")
+
+    function factorial(n) {
+      var result = n;
+      if (n === 0 || n === 1)
+        return 1;
+      while (n > 1) {
+        n--;
+        result *= n;
+      }
+      return result;
+    }
+    console.log("factorial " + factorial(4));
+
+    //8) Calculeaza cel mai mare divizor comun al 2 numere ("cmmdc")
+
+    function cmmdc(a, b) {
+      while (a !== b) {
+        if (a > b) {
+          a = a - b;
+        } else {
+          b = b - a;
+        }
+      }
+      return b;
+    }
+    console.log("cmmdc " + cmmdc(12, 20));
+    console.log("cmmdc " + cmmdc(10, 25));
+
+
+    // 9) Calculeaza cel mai mic multiplu comun al 2 numere ("cmmmc")
+
+    function cmmmc(x, y) {
+      a = x;
+      b = y;
+      while (a !== b) {
+        if (a > b) {
+          a = a - b;
+        } else {
+          b = b - a;
+        }
+      }
+      return (x * y) / a;
+    }
+    console.log("cmmmc " + cmmmc(10, 25));
+
+    //10) Returneaza un array care sa contina toti divizorii unui numar (ex pentru 64: trebuie sa returneze [2,4,8,16,32]) ("divizori")
+
+    function divizori(n) {
+      var div = [];
+      var nrDiv = 0;
+      for (var i = 1; i < n; i++) {
+        if (n % i === 0) {
+          div[nrDiv] = i;
+          nrDiv++;
+        }
+      }
+      return div;
+    }
+    console.log("divizori " + divizori(64));
+    console.log("divizori " + divizori(20));
+
+    //11) O functie care verifica daca un numar este palindrom (ex: 121, 1234321) ("palindrom")
+
+    function palindrom(nr) {
+      var ultimaCifra = 0;
+      var inversa = 0;
+      var nrTemp = nr;
+      while (nrTemp > 0) {
+        ultimaCifra = nrTemp % 10;
+        inversa = (inversa * 10) + ultimaCifra;
+        nrTemp = Math.floor(nrTemp / 10);
+      }
+      return (inversa === nr)
+    }
+
+    console.log("palindrom=" + palindrom(211));
+    console.log("palindrom=" + palindrom(1234321));
+
+    //12) O functie care sorteaza numerele pare dintr-un sir de numere primit ca parametru. ("sort")
+
+    function sort(arr) {
+      var sir = [];
+      var x = 0;
+      for (var i = 0; i < arr.length; i++) {
+        if (arr[i] % 2 === 0) {
+          sir[x] = arr[i];
+          x++;
+        }
+      }
+      var y = 0;
+      for (var i = 0; i < sir.length - 1; i++) {
+        for (var j = i + 1; j < sir.length; j++) {
+          if (sir[j] < sir[i]) {
+            y = sir[i];
+            sir[i] = sir[j];
+            sir[j] = y;
+          }
+        }
+      }
+      return sir;
+    }
+    console.log("sort " + sort([1, 6, 3, 4, 10, 6, 7, 8, 9]));
+    console.log("sort " + sort([112, 25, 64, 4, 10, 6, 7, 82, 9]));
+
+    //13) O functie care primeste ca parametru un array de numere. 
+    //Aceasta sorteaza ascendent numerele pare si descendent numerele impare, in cadrul aceluiasi array primit ca parameru. ("sortAscDesc")
+
+    function sortAscDesc(arr) {
+      var sirPar = [];
+      var par = 0;
+      for (var i = 0; i < arr.length; i++) {
+        if (arr[i] % 2 === 0) {
+          sirPar[par] = arr[i];
+          par++;
+        }
+      }
+      var y = 0;
+      for (var i = 0; i < sirPar.length - 1; i++) {
+        for (var j = i + 1; j < sirPar.length; j++) {
+          if (sirPar[j] < sirPar[i]) {
+            y = sirPar[i];
+            sirPar[i] = sirPar[j];
+            sirPar[j] = y;
+          }
+        }
+      }
+
+      sirImpar = [];
+      var impar = 0;
+      for (var i = 0; i < arr.length; i++) {
+        if (arr[i] % 2 !== 0) {
+          sirImpar[impar] = arr[i];
+          impar++;
+        }
+      }
+
+      var z = 0;
+      for (var i = 0; i < sirImpar.length - 1; i++) {
+        for (var j = i + 1; j < sirImpar.length; j++) {
+          if (sirImpar[j] > sirImpar[i]) {
+            z = sirImpar[i];
+            sirImpar[i] = sirImpar[j];
+            sirImpar[j] = z;
+          }
+        }
+      }
+      return sirPar.concat(sirImpar);
+
+    }
+    console.log("sortAscDesc " + sortAscDesc([1, 6, 3, 4, 10, 6, 7, 8, 9]));
+
+    //14)O functie care primeste 2 parametri(un array si un numar). 
+    //Folosind binary search verificati daca numarul primit ca parametru se gaseste in array. ("binarySearch") 
+
+    function binarySearch(arr, nr) {
+      var x = 0;
+      for (var i = 0; i < arr.length - 1; i++) {
+        for (var j = i + 1; j < arr.length; j++) {
+          if (arr[j] < arr[i]) {
+            x = arr[i];
+            arr[i] = arr[j];
+            arr[j] = x;
+          }
+        }
+      }
+      var low = 0;
+      var mid = 0;
+      var high = arr.length;
+
+      while (low <= high) {
+        mid = Math.floor((high + low) / 2);
+        if (nr === arr[mid]) {
+          return nr;
+        } else if (nr < arr[mid]) {
+          high = mid - 1;
+        } else if (nr > arr[mid]) {
+          low = mid + 1;
+        }
+      }
+      return "nu exista";
+
+    }
+    console.log("binarySearch " + binarySearch([1, 6, 3, 4, 10, 6, 7, 8, 9], 0));
+    console.log("binarySearch " + binarySearch([1, 6, 3, 4, 10, 6, 7, 8, 9], 9));
+
+  </script>
+
+  <body>
+
+  </body>
+
+</html>
