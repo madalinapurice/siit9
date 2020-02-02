@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>Detalii</title>
+    <meta charset="UTF-8">
+    <style>
+      .imagine {
+        width: 500px;
+      }
+
+      .meniu {
+        background-color: #20B2AA;
+        color: white;
+        width: 80px;
+        height: 35px;
+        border-radius: 7px;
+        font-size: 15px;
+        float: right;
+      }
+
+      .contact {
+        background-color: #F08080;
+        color: white;
+        width: 80px;
+        height: 35px;
+        border-radius: 7px;
+        font-size: 15px;
+        display: inline-block;
+        float: right;
+      }
+
+      h2 {
+        display: inline-block;
+      }
+
+      .mainPage {
+        max-width: 60%;
+        margin: auto;
+        background-color: #E6E6FA;
+        padding: 50px;
+      }
+
+    </style>
+    <script>
+      const queryString = window.location.search;
+      const urlParams = new URLSearchParams(queryString);
+      const param = urlParams.get('id');
+      console.log(param);
+      var preparat = {};
+
+      async function getDetails() {
+        var response = await fetch("https://restaurant-2a91b.firebaseio.com/menu/" + param + ".json");
+        window.preparat = await response.json();
+        console.log(preparat);
+        draw(preparat);
+      }
+
+      function draw(list) {
+        var str = "";
+        str += `<img src="${list.imagine}" class="imagine" />
+						<p>${list.nume}<br><br></p>
+						<p>${list.ingrediente}</p>
+						<p>${list.reteta}</p>
+						
+					`;
+        document.querySelector(".preparat").innerHTML = str;
+      }
+
+    </script>
+  </head>
+
+  <body onload="getDetails();">
+    <div class="mainPage">
+      <div class="header">
+        <h2>Cald si bun</h2>
+        <button class="contact">Contact</button>
+        <button class="meniu"><a href="index.html">Meniu</a></button>
+      </div>
+
+      <div class="preparat">
+      </div>
+
+  </body>
+</html>

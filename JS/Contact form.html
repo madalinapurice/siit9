@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>Contact form</title>
+    <meta charset="UTF-8">
+    <style>
+      .alert {
+        padding: 20px;
+        background-color: #BA55D3;
+        color: white;
+        font-size: 25px;
+        font-weight: bold;
+        font-family: "Lucida Console", serif;
+        text-align: center;
+        margin: 0px 325px 0px 325px;
+      }
+
+      .closebtn {
+        margin-left: 15px;
+        color: white;
+        font-weight: bold;
+        float: right;
+        font-size: 22px;
+        line-height: 20px;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+
+      .closebtn:hover {
+        color: black;
+      }
+
+      .aliniere {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-top: 20px;
+      }
+
+      img {
+        width: 300px;
+        height: 300px;
+        padding: 10px 10px 10px 30px;
+      }
+
+      .campuri {
+        display: inline;
+        float: left;
+        padding-top: 10px;
+        padding-left: 10px;
+      }
+
+      .imagine {
+        display: inline;
+        float: right;
+      }
+
+      .buttonSubmit {
+        background-color: #7B68EE;
+        color: white;
+        width: 80px;
+        height: 35px;
+        border-radius: 7px;
+        font-size: 15px;
+        float: right;
+      }
+
+      .inputText {
+        width: 300px;
+      }
+
+      .invalid {
+        border: 1px solid red;
+      }
+
+      .hidden {
+        display: none;
+      }
+
+    </style>
+
+    <script>
+      function validare(event) {
+        event.preventDefault();
+
+        var validat = true;
+		
+        var nume1 = document.querySelector("[name='fname']").value;
+        var nume2 = document.querySelector("[name='lname']").value;
+        var gender = document.querySelector("[name='gender']:checked").value;		
+        var mesaj = document.querySelector("[name='message']").value;
+		
+        var alertPopup = document.querySelector(".alert");
+		var textAlert =document.querySelector("#alerta");
+		
+        if (nume1.length < 3) {
+          document.querySelector("[name='fname']").classList.add("invalid");
+          validat = false;
+        } else if (validat === true) {
+          document.querySelector("[name='fname']").classList.remove("invalid");
+        }
+		
+        if (nume2.length < 3) {
+          document.querySelector("[name='lname']").classList.add("invalid");
+          validat = false;
+        } else if (validat === true) {
+          document.querySelector("[name='lname']").classList.remove("invalid");
+        }
+		
+        if (mesaj.length < 1) {
+          document.querySelector("[name='message']").classList.add("invalid");
+          validat = false;
+        } else if (validat === true) {
+          document.querySelector("[name='message']").classList.remove("invalid");
+        }
+
+        if (validat) {
+		
+          textAlert.innerText = "Thank you for contacting us, " + nume1 + "!";
+          alertPopup.classList.remove("hidden");
+
+          console.log("First name=" + nume1);
+          console.log("Last name=" + nume2);
+          console.log("Gender=" + gender);
+          console.log("Mesaj=" + mesaj);
+        }
+      }
+
+    </script>
+
+  </head>
+
+  <body>
+    <div class="alert hidden">
+      <span class="closebtn" onclick="this.parentElement.classList.add('hidden');">&times;</span>
+	  <p id="alerta"></p>
+    </div>
+
+    <div class="aliniere">
+      <form onsubmit="validare(event);">
+        <fieldset>
+          <div class="campuri">
+            <input type="text" class="inputText" name="fname" placeholder="First Name"><br>
+            <br>
+
+            <input type="text" class="inputText" name="lname" placeholder="Last Name"><br>
+            <br>
+
+            <p>Gender</p>
+            <input type="radio" name="gender" value="male"> M<br>
+            <input type="radio" name="gender" value="female"> F<br>
+            <br>
+
+            <textarea rows="4" cols="50" class="inputText" placeholder="Your message here..." name="message"></textarea><br>
+            <br>
+
+            <input type="submit" value="Submit" class="buttonSubmit" />
+          </div>
+
+          <div class="imagine">
+            <img src="../images/plic.png" />
+          </div>
+        </fieldset>
+      </form>
+    </div>
+  </body>
+
+</html>

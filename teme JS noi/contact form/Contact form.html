@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>Contact form</title>
+	<link href = "contact.css" rel="stylesheet" type="text/css">
+	<script src="contact.js"></script>
+    <meta charset="UTF-8">
+  
+  </head>
+
+  <body>
+    <div class="alert hidden">
+      <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+    </div>
+
+    <div class="aliniere">
+      <form onsubmit="validare(event);">
+        <fieldset>
+          <div class="campuri">
+            <input type="text" class="inputText" name="fname" placeholder="First Name"><br>
+            <br>
+
+            <input type="text" class="inputText" name="lname" placeholder="Last Name"><br>
+            <br>
+
+            <p>Gender</p>
+            <input type="radio" class="invalid" name="gender" value="male"> M<br>
+            <input type="radio" class="invalid" name="gender" value="female">F<br>
+            <br>
+
+            <textarea rows="4" cols="50" class="inputText" placeholder="Your message here..." name="message"></textarea><br>
+            <br>
+
+            <input type="submit" value="Submit" class="buttonSubmit" />
+          </div>
+
+          <div class="imagine">
+            <img src="plic.png" />
+          </div>
+        </fieldset>
+      </form>
+    </div>
+  </body>
+
+</html>

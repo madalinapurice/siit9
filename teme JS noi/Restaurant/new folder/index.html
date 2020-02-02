@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>Restaurant</title>
+    <meta charset="UTF-8">
+    <style>
+      .imagine {
+        width: 200px;
+      }
+
+      .detalii {
+        background-color: #F08080;
+        color: white;
+        width: 80px;
+        height: 35px;
+        border-radius: 7px;
+        font-size: 15px
+      }
+
+      .contact {
+        background-color: #F08080;
+        color: white;
+        width: 80px;
+        height: 35px;
+        border-radius: 7px;
+        font-size: 15px;
+        display: inline-block;
+        float: right;
+      }
+
+      h2 {
+        display: inline-block;
+      }
+
+      .mainPage {
+        max-width: 60%;
+        margin: auto;
+        background-color: #E6E6FA;
+        padding: 50px;
+      }
+
+      .input {
+        padding: 20px;
+      }
+
+      .tabel {
+        padding: 20px;
+      }
+
+      .btnCauta {
+        background-color: #F08080;
+        color: white;
+        border-radius: 7px;
+        font-size: 15px;
+
+      }
+
+    </style>
+    <script>
+      var meniu = {};
+      var indexEdit;
+
+      async function getList() {
+        var response = await fetch("https://restaurant-2a91b.firebaseio.com/menu/.json");
+        window.meniu = await response.json();
+        draw(meniu);
+      }
+
+      function draw(list) {
+        var str = "";
+        for (var i in list) {
+          if (list[i] === null) {
+            continue;
+          }
+          str += `<tr>
+					<td><img src="${list[i].imagine}" class="imagine" /></td>
+					<td>${list[i].nume}<br><br>${list[i].ingrediente}</td>
+					<td><button class="detalii"><a href="detalii.html?id=${i}">Detalii</a></button></td>
+				</tr>`;
+        }
+        document.querySelector("table tbody").innerHTML = str;
+      }
+
+    </script>
+  </head>
+
+  <body onload="getList();">
+    <div class="mainPage">
+
+      <div class="header">
+        <h2>Cald si bun</h2>
+        <button class="contact">Contact</button>
+      </div>
+
+      <div class="input">
+        <input type="text" name="text">
+        <input type="submit" value="Cauta in ingrediente" class="btnCauta" onclick="cauta()">
+      </div>
+
+      <table class="tabel" cellspacing="15">
+        <thead>
+        </thead>
+        <tbody>
+
+        </tbody>
+      </table>
+    </div>
+  </body>
+
+</html>

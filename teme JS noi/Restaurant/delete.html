@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>Delete</title>
+    <meta charset="UTF-8">
+    <style>
+      
+      h2 {
+        display: inline-block;
+      }
+
+      .mainPage {
+        max-width: 60%;
+        margin: auto;
+        background-color: #E6E6FA;
+        padding: 50px;
+      }
+
+	.adauga{
+		background-color: #F08080;
+        color: white;
+        width: 150px;
+        height: 45px;
+        border-radius: 7px;
+        font-size: 15px;
+	}
+    </style>
+    <script>
+	var idx=window.location.search.substr(4);
+	
+	async function loadDelete(idx){
+		var response = await fetch(`https://restaurant-2a91b.firebaseio.com/menu/${idx}.json`);
+		window.list = await response.json();
+		window.nume=list.nume;
+		document.querySelector("h2").innerHTML=`Esti pe cale sa stergi preparatul:${window.nume}?`
+	}
+			
+	async function del(idx) {
+		
+			var response = await fetch(`https://restaurant-2a91b.firebaseio.com/menu/${idx}.json`,{
+				method:"DELETE"
+		});
+		
+		window.location.href = "admin.html";
+	}
+	
+    </script>
+	
+  </head>
+
+  <body onload="loadDelete(idx)">
+    <div class="mainPage">
+      <div class="header">
+        <h1>Cald si bun (Admin)</h1>
+      </div>
+	  <h2> </h2>
+	  <h3>Confirmi stergerea?<h3>
+	  <button class="adauga" onclick="del(idx);">Da</button>
+	  <a href="admin.html"><button class="adauga">Nu</a></button>
+	  </div>
+	
+
+  </body>
+</html>

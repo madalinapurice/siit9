@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>loading</title>
+	<meta charset="UTF-8">
+</head>
+<style>
+
+.hidden{
+	display:none;
+}
+.loader {
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #3498db;
+  width: 120px;
+  height: 120px;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 2s linear infinite;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+</style>
+<script>
+ function showMain (){
+ 
+	setTimeout(function(){
+	var main=document.querySelector("#mainContent");
+	main.classList.remove("hidden");
+	
+	var main=document.querySelector(".loader");
+	main.classList.add("hidden");
+	
+	}, 2000);
+ }
+
+</script>
+
+<body onload="showMain();">
+
+<div class="loader"></div>
+<div id="mainContent" class="hidden">
+ continutul ascuns
+ </div>
+
+</body>
+</html>

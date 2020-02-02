@@ -1,0 +1,77 @@
+body,html {
+      height: 100%;
+      margin: 0;
+    }
+	
+    .bg {
+      background-image: url('coffee.jpg');
+      height: 100%;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-position: center;
+    }
+
+    .header {
+      background-color: lightblue;
+      opacity: 0.9;
+      width: 50%;
+      margin: auto;
+      margin-bottom: 10px;
+      padding: 40px;
+      font-size: 40px;
+      border-radius: 7px;
+      font-family: Lucida Console, serif;
+      font-weight: bold;
+    }
+
+    .firstBox {
+      background-color: rgb(232, 243, 243);
+      width: 50%;
+      margin: auto;
+      margin-bottom: 10px;
+      padding: 40px;
+      opacity: 0.9;
+      font-size: 25px;
+      font-weight: bold;
+      position: relative;
+      text-align: center;
+      border-radius: 7px;
+      font-family: Lucida Console, serif;
+    }
+
+    .adaugaContact {
+      background-color: #708090;
+      color: white;
+      border-radius: 7px;
+      font-size: 20px;
+      padding: 7px;
+      font-family: Lucida Console, serif;
+    }
+
+    .button {
+      padding: 20px;
+    }
+
+    .secondBox {
+      background-color: rgb(232, 243, 243);
+      width: 50%;
+      margin: auto;
+      margin-bottom: 10px;
+      padding: 40px;
+      opacity: 0.9;
+      font-size: 20px;
+      position: relative;
+      border-radius: 7px;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    td {
+      text-align: center;
+    }
+
+    .editLinks {
+      color: black;
+    }

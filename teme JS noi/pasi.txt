@@ -1,0 +1,29 @@
+1.introducere date
+2. functie pe buton agauda contact-onclick cu functia adaugaContact
+3.
+	a.citire si salvare intr-un obiect de tip list contacts cu 2 campuri(nume, tel)introduse cu document.querySelector
+	b.functie draw() care adauga linii td in tabel.document.querySelector de pe td si adaugi valorile citite. 
+	c.se activeaza  diplay second box  
+	d.se golesc valorile din campurile nume si tel
+4.onclick = modifica(parametru) , onclick=sterge(parametru) -2 functii pentru cele 2 linkuri 
+	a. la "modifica" se vor copia datele din linia curenta in campurile din firstBox
+	b.la "sterge" se va sterge linia curenta->popUp confirmare. se sterg valorile din td cu document.querySelector
+5.daca stergi toate valorile si lista e goala, se ascunde secondBox;-display none
+
+var numeIntrodus=document.querySelector("[name='nume']").value;//am cautat in pg elem cu proprietatea name=nume
+
+1. introducere date
+2.functie pe buton agauda item-onclick cu functia addItem
+3.
+a.citire si salvare intr-un obiect de tip list produse cu 2 campuri(produs-string si cumparat-boolean)introduse cu document.querySelector
+	cumparat e false la inceput si se seteaza in cod, nu se citeste
+	b.functie draw() care adauga linii td in tabel.document.querySelector de pe td si adaugi valorile citite. tbody
+	c.se activeaza  diplay inputText hidden
+	d.se golesc valorile din campul item-
+4.  functie onclick pe marked as buyed pe index cu strikethrough text-. apoi draw
+5. functie sort asc+desc
+
+
+ document.querySelector("table tbody").innerHTML = str; //adaugi in table in zona tbody, html-ul salvat in str
+  document.querySelector(".tabel").classList.remove("hidden"); //ia lista de clase de la div cu tabel+hidden() si sterge clasa hidden
+  produse.push(produsCitit); //adauga la coada listei de produse ultimul produs introdus

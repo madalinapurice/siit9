@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>Edit</title>
+    <meta charset="UTF-8">
+    <style>
+      
+  
+    
+      h2 {
+        display: inline-block;
+      }
+
+      .mainPage {
+        max-width: 60%;
+        margin: auto;
+        background-color: #E6E6FA;
+        padding: 50px;
+      }
+
+	.salveaza{
+		background-color: #F08080;
+        color: white;
+        width: 150px;
+        height: 45px;
+        border-radius: 7px;
+        font-size: 15px;
+	
+	}
+	input{
+	
+	width:100%;
+	box-sizing:border-box;
+	height:35px;
+	}
+    </style>
+    <script>
+	
+	var idx=window.location.search.substr(4);
+	console.log(idx);
+
+	async function loadEdit(idx){
+		var response = await fetch(`https://restaurant-2a91b.firebaseio.com/menu/${idx}.json`);
+		window.list = await response.json();
+		console.log(window.list);
+				document.querySelector("[name='urlImg']").value=list.imagine,
+				document.querySelector("[name='ingrediente']").value=list.ingrediente,
+				document.querySelector("[name='nume']").value=list.nume,
+				document.querySelector("[name='preparare']").value=list.reteta
+				
+			}
+	async function edit(event){
+				event.preventDefault();
+				console.log(document.querySelector("[name='urlImg']").value);
+				console.log(document.querySelector("[name='ingrediente']").value);
+				console.log(document.querySelector("[name='nume']").value);
+				console.log(document.querySelector("[name='preparare']").value);
+				var newLink = {
+					imagine:document.querySelector("[name='urlImg']").value,
+					ingrediente:document.querySelector("[name='ingrediente']").value,
+					nume: document.querySelector("[name='nume']").value,
+					reteta: document.querySelector("[name='preparare']").value
+				};
+				
+					
+					var response = await fetch(`https://restaurant-2a91b.firebaseio.com/menu/${idx}.json`,{
+						method:"PUT",
+						body:JSON.stringify(newLink)
+					});
+				
+				
+				window.location.href = "admin.html";
+			}
+    </script>
+	
+  </head>
+
+  <body onload="loadEdit(idx);">
+    <div class="mainPage">
+      <div class="header">
+        <h1>Cald si bun (Admin)</h1>
+      </div>
+	  
+	  <div class="campuri">
+		  Nume: <input type="text" name="nume"><br><br>
+		  URL imagine:<input type="text" name="urlImg"><br><br>
+		  Ingrediente:<input type="text" name="ingrediente"><br><br>
+		  Mod de preparare:<input type="text" name="preparare">
+	  </div>
+	  <br>
+	  <button class="salveaza" onclick="edit(event)">Salveaza modificarile</button>
+	  
+	  </div>
+	
+
+  </body>
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>Admin</title>
+    <meta charset="UTF-8">
+    <style>
+      .imagine {
+        width: 300px;
+      }
+
+      .adauga {
+        background-color: #20B2AA;
+        width: 150px;
+        height: 55px;
+        border-radius: 7px;
+        font-size: 15px;
+        float: right;
+		display:inline;
+      }
+
+      h1 {
+        display: inline-block;
+      }
+
+      .mainPage {
+        max-width: 60%;
+        margin: auto;
+        background-color: #E6E6FA;
+        padding: 50px;
+      }
+
+	.modifica{
+		background-color: #20B2AA;
+        color: white;
+        width: 80px;
+        height: 35px;
+        border-radius: 7px;
+        font-size: 15px;
+        float: right;
+	
+	}
+	
+	.sterge{
+		background-color: #CD5C5C;
+        color: white;
+        width: 80px;
+        height: 35px;
+        border-radius: 7px;
+        font-size: 15px;
+        float: right;
+	}
+	
+	.link{
+		text-decoration:none;
+		color:white;
+	}
+	
+	.hidden{
+		display:none;
+	}
+	.loader {
+	  border: 16px solid #f3f3f3;
+	  border-radius: 50%;
+	  border-top: 16px solid #3498db;
+	  width: 120px;
+	  height: 120px;
+	  -webkit-animation: spin 2s linear infinite; /* Safari */
+	  animation: spin 2s linear infinite;
+	}
+
+	/* Safari */
+	@-webkit-keyframes spin {
+	  0% { -webkit-transform: rotate(0deg); }
+	  100% { -webkit-transform: rotate(360deg); }
+	}
+
+	@keyframes spin {
+	  0% { transform: rotate(0deg); }
+	  100% { transform: rotate(360deg); }
+	}
+
+    </style>
+    <script>
+	async function getList(){
+		var response = await fetch("https://restaurant-2a91b.firebaseio.com/menu/.json");
+		window.list = await response.json();
+		incarcare();
+		draw();
+	}
+     
+	function draw(){	
+		var str = "";
+		for(var i in list){
+			if(list[i]===null){
+			continue;
+			}
+		str+= `
+			<tr>
+					<td><img src="${list[i].imagine}" class="imagine" /></td>
+					<td>${list[i].nume}<br><br>${list[i].ingrediente}</td>
+					<td><a href="edit.html?id=${i}" class="link"><button class="modifica">Modifica</a></button></td>
+					<td><a href="delete.html?id=${i}" class="link"><button class="sterge">Sterge</a></button></td>
+				</tr>`;
+	
+		}
+		document.querySelector("table tbody").innerHTML = str;
+	}
+
+	function incarcare() {
+        document.querySelector(".loader").classList.add("hidden");
+		document.querySelector(".tabel").classList.remove("hidden");
+    }
+	
+    </script>
+  </head>
+
+  <body onload="getList();">
+ 
+    <div class="mainPage">
+	
+      <div class="header">
+        <h1>Cald si bun (Admin)</h1>
+        <button class="adauga"><a href="add.html" class="link">Adauga reteta noua</a></button>
+      </div>
+	  
+	<div class="loader"></div>
+
+	<table class="tabel hidden" cellspacing="8" >
+        <thead>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+	  
+     </div>
+
+  </body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>Loading</title>
+	<link href = "shopping.css" rel="stylesheet" type="text/css">
+	<script src="shopping.js"></script>
+    <meta charset="UTF-8">
+  </head>
+
+  <body>
+
+    <div class="box">
+      <div class="title">Shopping list</div>
+      <div class="fields">
+        <input type="text" class="inputText" name="produs">
+        <input type="submit" value="Add item" class="addItem" onclick="add()">
+      </div>
+      <div class="sort">
+        <button onclick="sortAsc()">Sort asc</button>
+        <button onclick="sortDesc()">Sort desc</button>
+      </div>
+
+      <div class="tabel hidden">
+        <table style="width:100%" align="center">
+          <thead>
+            <tr>
+              <th>Item description</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+
+          </tbody>
+        </table>
+
+      </div>
+    </div>
+  </body>
+
+</html>
