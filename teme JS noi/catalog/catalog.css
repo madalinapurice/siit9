@@ -1,0 +1,37 @@
+.tabel {
+        margin-top: 30px;
+      }
+
+      .butoane {
+        margin-top: 30px;
+      }
+
+      .hidden {
+        display: none;
+      }
+
+      #lista_elevi_wrapper {
+        background-color: #98FB98;
+        height: 500px;
+        display: inline-block;
+        padding-top: 20px;
+      }
+
+      #note_elev_wrapper {
+        background-color: #E0FFFF;
+        height: 500px;
+        padding-bottom: 20px;
+      }
+
+      .redimensionare {
+        width: 50%;
+      }
+
+      .dimensiuneInit {
+        width: 100%;
+      }
+
+      .wrapperNote {
+        display: inline-block;
+        width: 49.5%;
+      }

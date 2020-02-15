@@ -80,7 +80,7 @@
 				if(confirm(`Esti sigur ca vrei sa stergi ${list[idx].name} ?`)){
 					//list.splice(idx,1);
 					
-				var response=await fetch('https://siit9-870a1.firebaseio.com/${idx}.json',{
+					var response=await fetch('https://siit9-870a1.firebaseio.com/${idx}.json',{
 					method:"DELETE"
 					});
 					

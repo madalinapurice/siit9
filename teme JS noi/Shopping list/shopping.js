@@ -1,7 +1,16 @@
-	var produse = [];
-      var indexEdit;
 
-      function add() {
+	var produse = [];
+    var indexEdit;
+	
+	window.onload=function(){
+	document.querySelector("[name='produs']").addEventListener("keyup", function(event) {
+		if (event.keyCode === 13) {
+			event.preventDefault();
+			document.querySelector(".addItem").click();
+  }
+});
+}
+     function add() {
         var produsIntrodus = document.querySelector("[name='produs']").value;
         if (produsIntrodus.length > 0) {
           var produsCitit = {
@@ -51,16 +60,13 @@
         var produseSortateAsc = [];
         for (var i = 0; i <= produse.length - 1; i++) {
           for (j = i + 1; j < produse.length; j++) {
-            if (produse[j].produs < produse[i].produs) {
+            if (produse[j].produs.toLowerCase() < produse[i].produs.toLowerCase()) {
               produseSortateAsc = produse[i];
               produse[i] = produse[j];
               produse[j] = produseSortateAsc;
             }
-
           }
-
         }
-
         draw();
       }
 
@@ -68,13 +74,13 @@
         var produseSortateDesc = [];
         for (var i = 0; i <= produse.length - 1; i++) {
           for (j = i + 1; j < produse.length; j++) {
-            if (produse[j].produs > produse[i].produs) {
+            if (produse[j].produs.toLowerCase() > produse[i].produs.toLowerCase()) {
               produseSortateDesc = produse[i];
               produse[i] = produse[j];
               produse[j] = produseSortateDesc;
             }
-
           }
         }
         draw();
       }
+	  

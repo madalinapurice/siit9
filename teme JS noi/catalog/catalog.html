@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>Catalog</title>
+	<link href = "catalog.css" rel="stylesheet" type="text/css">
+	<script src="catalog.js"></script>
+    <meta charset="UTF-8">
+    <style>
+      
+
+    </style>
+    <script>
+      
+
+    </script>
+  </head>
+
+  <body>
+
+    <div id="lista_elevi_wrapper" class="dimensiuneInit">
+      <h3>Lista elevi</h3>
+      Nume: <input type="text" class="inputText" name="text">
+      <button onclick="onClickAddElev()" class="adaugaElev">Adauga elev</button>
+
+      <div class="butoane">
+        <button onclick="onClickSortAscMedie()">Sorteaza ascendent dupa medie note</button>
+        <button onclick="onClickSortDescMedie()">Sorteaza descendent dupa medie note</button>
+      </div>
+
+      <div class="tabel">
+        <table style="width:100%">
+          <thead></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+
+    <div id="note_elev_wrapper" class="hidden">
+      <button onclick="onClickAscundeNote()">Ascunde notele</button>
+      <h3 id="numeDivNote"></h3>
+      Note: <input type="number" class="inputText" name="notes">
+      <button onclick="onClickAddNota()" class="adaugare">Adauga nota</button>
+
+      <div class="butoane">
+        <button onclick="onClickSortNoteAsc()">Sorteaza ascendent notele</button>
+        <button onclick="onClickSortNoteDesc()">Sorteaza descendent notele</button>
+      </div>
+
+      <div class="tabelNote">
+        <table style="width:100%" align="center">
+          <tbody>
+            <tr>
+              <th>Note</th>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </body>
+
+</html>
