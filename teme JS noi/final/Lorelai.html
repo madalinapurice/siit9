@@ -76,6 +76,7 @@
   </body>
   
   <script>
+  
  async function getList() {
       var response = await fetch("https://site-81d77.firebaseio.com/list/.json");
       window.list = await response.json();
@@ -133,14 +134,12 @@
     }
 
 function showMain (){
- 
 	setTimeout(function(){
 	var main=document.querySelector(".wrapper");
 	main.classList.remove("hidden");
 	
 	var main=document.querySelector(".loader");
 	main.classList.add("hidden");
-	
 	}, 2000);
  }
  </script>
