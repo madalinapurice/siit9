@@ -39,11 +39,11 @@ function showMain (){
  }
 
 function adaugaInCos(){
-	let cos;//array cate tine elem din localStorage
-	let found = false;//var contor care arata ca produsul exista deja in cos
-	let cantitate = parseInt(document.querySelector("[name='quantity']").value);
-	let prodStoc=parseInt(window.produs.stoc);
-	let cosStr = localStorage.getItem("cart");
+	var cos;
+	var found = false;
+	var cantitate = parseInt(document.querySelector("[name='quantity']").value);
+	var prodStoc=parseInt(window.produs.stoc);
+	var cosStr = localStorage.getItem("cart");
 	
 	if(cosStr===null){
 		cos = [];
@@ -53,10 +53,10 @@ function adaugaInCos(){
 	
 	
 	if(cos.length>0){
-		for(let i=0;i<cos.length;i++){
+		for(var i=0;i<cos.length;i++){
 			if(cos[i].id === id){			
-				let cantCos=parseInt(cos[i].cantitate);
-				let stocCos=parseInt(cos[i].stoc);
+				var cantCos=parseInt(cos[i].cantitate);
+				var stocCos=parseInt(cos[i].stoc);
 				if((cantitate+cantCos)<=stocCos){				
 					cos[i].cantitate += cantitate;
 					
